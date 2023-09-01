@@ -38,7 +38,7 @@ const Contact = () => {
             <h1 className={Styles.title}>Contact us</h1>
             <Formik
                 initialValues={initialValues}
-                // validationSchema={validationSchema}
+                validationSchema={validationSchema}
                 onSubmit={onSubmit}
             >
                 <Form>
@@ -127,5 +127,12 @@ const Contact = () => {
         </div>
     );
 };
+
+const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    phone: Yup.string().required("Phone number is required"),
+    desc: Yup.string().required("Description is required"),
+});
 
 export default Contact;

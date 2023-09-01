@@ -1,0 +1,23 @@
+
+.title {
+    margin-bottom: 20px;
+}
+
+.formfield {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.fieldinput {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.errormessage {
+    color: rgb(244, 48, 48);
+    font-size: 12px;
+}

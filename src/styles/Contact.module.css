@@ -1,3 +1,7 @@
+.contact {
+width: 100%;
+max-width: 400px;
+}
 
 .title {
     margin-bottom: 20px;
@@ -7,18 +11,38 @@
 .formfield {
     margin-bottom: 10px;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
 }
 
 .fieldinput {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     margin-bottom: 10px;
 }
 
 .errormessage {
     color: rgb(244, 48, 48);
     font-size: 12px;
+}
+
+.formcontrol {
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.textarea {
+    min-height: 100px;
+}
+
+.formlabel {
+    margin-bottom: 5px;
+}
+
+.btn {
+    height: 40px;
+    border: none;
+    width: 100%;
+    border-radius: 100px
 }

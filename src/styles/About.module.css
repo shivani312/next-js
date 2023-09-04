@@ -1,0 +1,18 @@
+.about {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.textitems {
+    margin: 10px 0;
+}
+
+.list {
+    list-style-type: disc;
+    margin: 0 20px;
+}
+
+.title {
+    text-align: center;
+}

@@ -34,7 +34,7 @@ const Contact = () => {
     };
 
     return (
-        <div>
+        <div className={Styles.contact}>
             <h1 className={Styles.title}>Contact us</h1>
             <Formik
                 initialValues={initialValues}
@@ -44,13 +44,13 @@ const Contact = () => {
                 <Form>
                     <div className={Styles.formfield}>
                         <div className={Styles.fieldinput}>
-                            <label className="form-label" htmlFor="name">
+                            <label className={Styles.formlabel} htmlFor="name">
                                 Name
                             </label>
                             <Field
                                 type="text"
                                 placeholder="Enter name"
-                                className="form-control"
+                                className={Styles.formcontrol}
                                 id="exampleInputName"
                                 name="name"
                             />
@@ -63,13 +63,13 @@ const Contact = () => {
                     </div>
                     <div className={Styles.formfield}>
                         <div className={Styles.fieldinput}>
-                            <label className="form-label" htmlFor="email">
+                            <label className={Styles.formlabel} htmlFor="email">
                                 Email
                             </label>
                             <Field
                                 type="email"
                                 placeholder="Enter email"
-                                className="form-control"
+                                className={Styles.formcontrol}
                                 id="exampleInputEmail1"
                                 name="email"
                             />
@@ -82,13 +82,13 @@ const Contact = () => {
                     </div>
                     <div className={Styles.formfield}>
                         <div className={Styles.fieldinput}>
-                            <label className="form-label" htmlFor="phone">
+                            <label className={Styles.formlabel} htmlFor="phone">
                                 Phone no
                             </label>
                             <Field
                                 type="text"
                                 placeholder="Enter phone"
-                                className="form-control"
+                                className={Styles.formcontrol}
                                 id="exampleInputPhone"
                                 name="phone"
                             />
@@ -101,14 +101,14 @@ const Contact = () => {
                     </div>
                     <div className={Styles.formfield}>
                         <div className={Styles.fieldinput}>
-                            <label className="form-label" htmlFor="desc">
+                            <label className={Styles.formlabel} htmlFor="desc">
                                 Description
                             </label>
                             <Field
                                 as="textarea"
                                 placeholder="Enter description here..."
                                 id="desc"
-                                className="form-control"
+                                className={`${Styles.formcontrol} ${Styles.textarea}`}
                                 name="desc"
                             />
                         </div>
@@ -119,7 +119,7 @@ const Contact = () => {
                         />
                     </div>
 
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className={Styles.btn}>
                         Submit
                     </button>
                 </Form>

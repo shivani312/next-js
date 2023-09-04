@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react";
 
 import style from "../../styles/Blog.module.css";
+import { useRouter } from "next/router";
 
 const Slug = (props: any) => {
+    const router = useRouter();
+    const { slug } = router.query;
     const [blog, setBlog] = useState<any>();
 
     useEffect(() => {
-        props.blogs && setBlog(props.blogs);
-    }, [props.blogs]);
+        slug &&
+            fetch(`http://localhost:3000/api/getblogs?slug=${slug}`)
+                .then((data: any) => {
+                    return data.json();
+                })
+                .then((parsed) => {
+                    setBlog(parsed);
+                });
+    }, [slug]);
 
     return (
         <div className={style.blogpost}>
@@ -18,15 +28,15 @@ const Slug = (props: any) => {
     );
 };
 
-export async function getServerSideProps(context: any) {
-    const { slug } = context.query;
-    let data = await fetch(`http://localhost:3001/api/getblogs?slug=${slug}`);
+// export async function getServerSideProps(context: any) {
+//     const { slug } = context.query;
+//     let data = await fetch(`http://localhost:3000/api/getblogs?slug=${slug}`);
 
-    let blogs = await data.json();
+//     let blogs = await data.json();
 
-    return {
-        props: { blogs },
-    };
-}
+//     return {
+//         props: { blogs },
+//     };
+// }
 
 export default Slug;

@@ -13,10 +13,9 @@ const Contact = () => {
     };
 
     const onSubmit = async (values: any, { resetForm }: any) => {
-        console.log(values);
         try {
             const response = await fetch(
-                "http://localhost:3001/api/postcontact",
+                "http://localhost:3000/api/postcontact",
                 {
                     method: "POST", // or 'PUT'
                     headers: {

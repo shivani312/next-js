@@ -16,5 +16,4 @@ export default async function handler(
     allBlogs.push(JSON.parse(myfile))
   }
   res.status(200).json(allBlogs)
-
 }

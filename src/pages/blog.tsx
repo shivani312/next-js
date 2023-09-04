@@ -3,15 +3,33 @@ import Link from "next/link";
 
 import styles from "../styles/Blog.module.css";
 
-const Blog = (props: any) => {
+const Blog = () => {
     const [blogData, setBlogData] = useState([]);
 
     useEffect(() => {
-        props.allBlogs && setBlogData(props.allBlogs);
-    }, [props.allBlogs]);
+        fetch("http://localhost:3000/api/blogs")
+            .then((data: any) => {
+                return data.json();
+            })
+            .then((parsed) => {
+                setBlogData(parsed);
+            });
+    }, []);
+
+    // const fetchMoreData = async () => {
+    //     let data = await fetch("http://localhost:3000/api/blogs?count=1");
+    //     let allBlogs = await data.json();
+    //     setBlogData(allBlogs);
+    // };
 
     return (
         <div className={styles.blogs}>
+            {/* <InfiniteScroll
+                dataLength={blogData.length}
+                next={fetchMoreData}
+                hasMore={true}
+                loader={<h4>Loading...</h4>}
+            > */}
             {blogData.length > 0 &&
                 blogData.map((item: any, index: number) => (
                     <Fragment key={index}>
@@ -23,18 +41,19 @@ const Blog = (props: any) => {
                         </div>
                     </Fragment>
                 ))}
+            {/* </InfiniteScroll> */}
         </div>
     );
 };
 
-export async function getServerSideProps() {
-    let data = await fetch("http://localhost:3001/api/blogs");
+// export async function getServerSideProps() {
+//     let data = await fetch("http://localhost:3000/api/blogs?count=1");
 
-    let allBlogs = await data.json();
+//     let allBlogs = await data.json();
 
-    return {
-        props: { allBlogs },
-    };
-}
+//     return {
+//         props: { allBlogs },
+//     };
+// }
 
 export default Blog;
